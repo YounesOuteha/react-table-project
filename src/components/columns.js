@@ -5,6 +5,8 @@
 /* 5- Use the table instance created in step 3 to bring life to the HTML defined in step 4 */
 /* 6- Include the desired CSS or UI libraries as desired */
 
+import { format } from 'date-fns'
+
 export const COLUMNS =[
     {
         Header:'Id',
@@ -24,7 +26,8 @@ export const COLUMNS =[
     {
         Header:'Date of Birth',
         Footer: 'Date of Birth',
-        accessor: 'date_of_birth'
+        accessor: 'date_of_birth',
+        Cell: ({ value }) => {return format(new Date(value), 'dd/MM/yyyy')}
     },
     {
         Header:'Country',
@@ -67,7 +70,8 @@ export const GROUPED_COLUMNS = [
             {
                 Header:'Date of Birth',
                 Footer: 'Date of Birth',
-                accessor: 'date_of_birth'
+                accessor: 'date_of_birth',
+                Cell: ({ value }) => {return format(new Date(value), 'dd/MM/yyyy')}
             },
             {
                 Header:'Country',
