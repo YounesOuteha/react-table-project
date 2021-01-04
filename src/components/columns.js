@@ -70,8 +70,7 @@ export const GROUPED_COLUMNS = [
             {
                 Header:'Date of Birth',
                 Footer: 'Date of Birth',
-                accessor: 'date_of_birth',
-                Cell: ({ value }) => {return format(new Date(value), 'dd/MM/yyyy')}
+                accessor: 'date_of_birth'
             },
             {
                 Header:'Country',
