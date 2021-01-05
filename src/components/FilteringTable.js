@@ -4,15 +4,23 @@ import MOCK_DATA from './MOCK_DATA.json'
 import { COLUMNS, GROUPED_COLUMNS } from './columns'
 import './table.css'
 import { GlobalFilter } from './GlobalFilter'
+import { ColumnFilter } from './ColumnFilter'
 
 const FilteringTable = () => {
 
     const columns = useMemo(() => COLUMNS, [])
     const data = useMemo(() => MOCK_DATA, [])
+    /* Set up research input filter automatically for each column without manually typing in in our setup ColumnJS */
+    const defaultColumn = useMemo(()=>{
+        return{
+            Filter: ColumnFilter
+        }
+    },[])
 
     const { getTableProps, getTableBodyProps, headerGroups, footerGroups, rows, prepareRow, state, setGlobalFilter } = useTable(
         {columns,
-        data },
+        data,
+        defaultColumn },
         useFilters,
         useGlobalFilter)
     const { globalFilter } = state
